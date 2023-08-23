@@ -20,17 +20,15 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v1
         with:
-          python-version: '3.10'
+          python-version: '3.8'
 
       - name: Create and start virtual environment
         run: |
           python -m venv venv
           source venv/bin/activate
-        working-directory: ./NeighborlyFrontEnd
       
       - name: Install dependencies
         run: pip install -r requirements.txt
-        working-directory: ./NeighborlyFrontEnd
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
@@ -39,7 +37,7 @@ jobs:
         with:
           name: python-app
           path: |
-            ./NeighborlyFrontEnd/
+            . 
             !venv/
 
   deploy:
@@ -62,4 +60,4 @@ jobs:
         with:
           app-name: 'tuyendinh'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AABEE1431F024E78A489E32C0ABD1437 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1E9B31ACAEE149FF8D67B1F76F925023 }}
